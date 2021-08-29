@@ -1,1 +1,1 @@
-# finance
+# finance app
