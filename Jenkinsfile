@@ -20,7 +20,7 @@ pipeline {
             
         }
 
-        stage ("Deploy") {
+        stage ("Deploy33") {
 
             steps {
                 echo 'Building the application'
