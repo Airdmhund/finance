@@ -42,15 +42,7 @@ pipeline {
 
     post {
         always {
-
-        }
-
-        failure {
-
-        }
-
-        success {
-
+            echo 'I can see youre working'
         }
     }
 }
