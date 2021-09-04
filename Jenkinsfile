@@ -4,7 +4,7 @@ pipeline {
         NEW_VERSION = '1.3.0'
     }
     stages {
-        stage ("build") {
+        stage ("Build") {
 
             steps {
                 echo 'Automatically Building the application'
@@ -15,7 +15,7 @@ pipeline {
             
         }
 
-        stage ("test") {
+        stage ("Test") {
           /* # when {
                # expression {
               #      BRANCH_NAME == 'dev'
@@ -24,17 +24,24 @@ pipeline {
 
             steps {
                 echo 'testing the application'
-                echo 'In Dev branch'
-		echo 'Changes Applied'
 
             }
             
         }
 
-        stage ("deploy") {
+	stage ("Building and Publishing Docker Image") {
+		steps {
+			echo 'About to build Docker Image'
+			
+		}
+
+	
+	}
+
+        stage ("Deploy to Airflow") {
 
             steps {
-                echo 'deploying the application'
+                echo 'deploying the application to airflow'
 
             }
             
