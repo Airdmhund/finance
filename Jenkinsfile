@@ -16,15 +16,16 @@ pipeline {
         }
 
         stage ("test") {
-            when {
-                expression {
-                    BRANCH_NAME == 'dev'
-                }
-            }
+           # when {
+               # expression {
+              #      BRANCH_NAME == 'dev'
+             #   }
+            #}
 
             steps {
                 echo 'testing the application'
                 echo 'In Dev branch'
+		echo 'Changes Applied'
 
             }
             
@@ -33,7 +34,7 @@ pipeline {
         stage ("deploy") {
 
             steps {
-                echo 'deployinggit the application'
+                echo 'deploying the application'
 
             }
             
