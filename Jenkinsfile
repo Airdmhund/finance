@@ -7,7 +7,7 @@ pipeline {
         stage ("build") {
 
             steps {
-                echo 'Building the application'
+                echo 'Automatically Building the application'
                 echo "Building version ${NEW_VERSION}"
                 echo 'this is working'
 
