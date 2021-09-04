@@ -16,11 +16,11 @@ pipeline {
         }
 
         stage ("test") {
-           # when {
+          /* # when {
                # expression {
               #      BRANCH_NAME == 'dev'
              #   }
-            #}
+            #} */
 
             steps {
                 echo 'testing the application'
