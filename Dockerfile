@@ -1,6 +1,7 @@
 FROM python:3.9-rc-slim
 
 
+
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 ENV HOME /home
 ENV PATH $PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
