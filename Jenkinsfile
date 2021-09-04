@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment {
         NEW_VERSION = '1.3.0'
+	    dockerImage =''
+        registry = 'airdmhund/testing'
     }
     stages {
         stage ("Build") {
@@ -32,6 +34,10 @@ pipeline {
 	stage ("Building and Publishing Docker Image") {
 		steps {
 			echo 'About to build Docker Image'
+			script {
+                dockerImage = docker.build registry
+				
+			}
 			
 		}
 
