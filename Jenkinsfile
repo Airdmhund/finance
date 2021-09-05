@@ -57,7 +57,7 @@ pipeline {
 
     post {
         always {
-            echo 'I can see youre working perfectly'
+            echo 'I can see youre working perfectly.'
         }
     }
 }
