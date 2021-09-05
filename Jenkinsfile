@@ -2,8 +2,7 @@ pipeline {
     agent any
     environment {
         NEW_VERSION = '1.3.0'
-	    dockerImage =''
-        registry = 'airdmhund/testing'
+	dockerImage =''
     }
     stages {
         stage ("Build") {
@@ -34,11 +33,6 @@ pipeline {
 	stage ("Building and Publishing Docker Image") {
 		steps {
 			echo 'About to build Docker Image'
-			/** docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                def customImage = docker.build("airdmhund/myrepo") 
-
-                customImage.push() **/
-            }
 			
 		}
 
@@ -57,7 +51,7 @@ pipeline {
 
     post {
         always {
-            echo 'I can see youre working perfectly.'
+            echo 'I can see youre working'
         }
     }
 }
