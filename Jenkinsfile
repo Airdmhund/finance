@@ -30,20 +30,19 @@ pipeline {
 
             }
             
-        }
+        } 
 
-	stage ("Building and Publishing Docker Image") {
-		steps {
-			echo 'About to build Docker Image'
+	    stage ("Building and Publishing Docker Image") {
+		    steps {
+			    echo 'About to build Docker Image'
 
-            script{
-                dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
-            }
+                script{
+                    dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+                }
 			
 		}
+        }
 
-	
-	}
 
         stage ("Deploy to Airflow") {
 
