@@ -2,9 +2,9 @@ pipeline {
     agent any
     environment {
         NEW_VERSION = '1.3.0'
-        IMAGE_REPO_NAME = 'testing'
-        IMAGE_TAG = 'latest'
-        REPOSITORY_URL = 'https://hub.docker.com/repository/docker/airdmhund/myrepo'
+        registry = 'airdmhund/myrepo'
+        registryCredential = 'dockerhub_id'
+        dockerImage = ''
     }
     stages {
         stage ("Build") {
@@ -37,19 +37,23 @@ pipeline {
 			    echo 'About to build Docker Image'
 
                 script{
-                    dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
-                    sh "docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${REPOSITORY_URL}:${IMAGE_TAG}"
-                    sh "docker push airdmhund/myrepo:${IMAGE_TAG}"
+                    dockerImage = docker.build registry + "$BUILD_NUMBER"
                 }
 			
 		}
         }
 
 
-        stage ("Deploy to Airflow") {
+        stage ("Deploy to hub") {
 
             steps {
-                echo 'deploying the application to airflow'
+                echo 'deploying the application to DockerHub'
+
+                script {
+                    docker.withRegistry('',registryCredential) {
+                        dockerImage.push()
+                    }
+                }
 
             }
             
