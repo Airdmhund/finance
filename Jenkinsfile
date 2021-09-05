@@ -47,7 +47,7 @@ pipeline {
         stage ("Deploy to hub") {
 
             steps {
-                echo 'deploying the application to DockerHub'
+                echo 'deploying the application to DockerHubk'
 
                 script {
                     docker.withRegistry('',registryCredential) {
