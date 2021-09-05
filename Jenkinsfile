@@ -34,10 +34,10 @@ pipeline {
 	stage ("Building and Publishing Docker Image") {
 		steps {
 			echo 'About to build Docker Image'
-			docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                def customImage = docker.build("airdmhund/myrepo")
+			/** docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                def customImage = docker.build("airdmhund/myrepo") 
 
-                customImage.push()
+                customImage.push() **/
             }
 			
 		}
