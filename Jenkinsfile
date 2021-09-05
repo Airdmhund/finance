@@ -38,6 +38,8 @@ pipeline {
 
                 script{
                     dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+                    sh "docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${REPOSITORY_URL}:${IMAGE_TAG}"
+                    sh "docker push airdmhund/myrepo:${IMAGE_TAG}"
                 }
 			
 		}
